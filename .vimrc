@@ -61,13 +61,27 @@ set cursorline          " Highlight current line
 set showcmd             " Show command in status line
 set wildmenu            " Better command completion
 set hidden              " Allow switching buffers without saving
-
+set esckeys            " Allow using Esc in insert mode
+set backspace=indent,eol,start " Make backspace behave like normal
+set mouse=a            " Enable mouse support in all modes
+set scrolloff=8        " Keep 8 lines visible when scrolling
+set sidescrolloff=8    " Keep 8 columns visible when side-scrolling
+set nostartofline      " Don't move to start of line when moving vertically
+set ruler              " Show cursor position
+set shortmess+=atI      " Don't show completion messages
+set updatetime=300     " Faster completion (default is 4000ms)
+set showmode          " Show current mode in command line
+set title              " Set terminal title to current file
+set showcmd           " Show incomplete commands
 " ========== Indentation ==========
 set tabstop=4           " Show existing tab with 4 spaces width
 set shiftwidth=4        " When indenting with '>', use 4 spaces
 set expandtab           " Use spaces instead of tabs
 set autoindent
 set smartindent
+
+" Always show status line
+set laststatus=2
 
 " Enable syntax highlighting (VSCode may override, but good for standalone Vim)
 " syntax on
@@ -81,7 +95,7 @@ set smartcase           " Unless uppercase letters used
 set incsearch           " Show search as you type
 set hlsearch            " Highlight matches
 
-" Map <leader><space> to clear search highlight
+" Map <leader><space> to clear search highlight (normal mode only)
 nnoremap <Esc> :nohlsearch<CR>
 
 " ========== Clipboard ==========
@@ -99,22 +113,43 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 
 " Move between splits with Ctrl-h/j/k/l
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-l> <C-w>l
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+
+" Remaining window shortcuts
+" nnoremap <C-s> <C-w>s
+" nnoremap <C-v> <C-w>v
+" nnoremap <C-w> <C-w>w
+" nnoremap <C-q> <C-w>q
+" nnoremap <C-x> <C-w>x
+" nnoremap <C-H> <C-w>H
+" nnoremap <C-L> <C-w>L
+" nnoremap <C-J> <C-w>J
+" nnoremap <C-K> <C-w>K
 
 " Quick window resizing
 nnoremap <leader>= :resize +5<CR>
 nnoremap <leader>- :resize -5<CR>
-nnoremap <leader>> :vertical resize +5<CR>
 nnoremap <leader>< :vertical resize -5<CR>
+nnoremap <leader>> :vertical resize +5<CR>
 
 " Easier buffer navigation
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
 " ========== Quality of Life ==========
+" H and L to go to start/end of line
+"nmap H ^
+"nmap L $
+nnoremap gh ^
+nnoremap gl $
+xnoremap gh ^
+xnoremap gl $
+onoremap gh ^
+onoremap gl $
+
 " Yank to end of line (like D & C work)
 nnoremap Y y$
 
@@ -123,8 +158,8 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 " Move selected lines up/down
-xnoremap J :move '>+1<CR>gv=gv
-xnoremap K :move '<-2<CR>gv=gv
+" xnoremap J :move '>+1<CR>gv=gv
+" xnoremap K :move '<-2<CR>gv=gv
 
 " Reselect last pasted text
 nnoremap gp `[v`]
@@ -140,8 +175,6 @@ vnoremap <leader>y "+y
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
-" Always show status line
-set laststatus=2
 
 " ========== VSCode Specific ==========
 " Some plugins won't work in VSCodeVim, but motions and remaps will

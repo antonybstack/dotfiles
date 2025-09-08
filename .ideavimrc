@@ -1,120 +1,311 @@
-"Reload Config
-":source ~/.ideavimrc
-"Ctrl-W + h: Move to the window on the left.
-"Ctrl-W + j: Move to the window below.
-"Ctrl-W + k: Move to the window above.
-"Ctrl-W + l: Move to the window on the right.
-"Ctrl-W + p: Move to the previous window
+":%s/foo/bar/g
+
 source ~/.vimrc
 set clipboard^=ideaput
 
-" Navigate between splits with Ctrl-W hjkl
-"" nmap <C-h> <C-W>h
-"" nmap <C-j> <C-W>j
-"" nmap <C-k> <C-W>k
-"" nmap <C-l> <C-W>l
+" General
+map <leader>,o :edit ~/.ideavimrc<cr>
+map <leader>,, :source ~/.ideavimrc<cr>:nohlsearch<cr>
+map <M-D-Left> :tabprevious<CR>
+map <M-D-Right> :tabnext<CR>
 
-" Toggle between editor and last active tool window
-" nmap <leader>w <Action>(JumpToLastWindow)
+map <leader>. <Action>(ShowIntentionActions)
+ 
+map <C-;> <Action>(RecentFiles)
 
-noremap <leader>cc :edit ~/.ideavimrc<cr>
+" IDE
+map <leader>\ <Action>(SettingsEntryPoint)
 
-noremap <leader>cs :source ~/.ideavimrc<cr>:nohlsearch<cr>
+map [m <Action>(MethodUp)
+map ]m <Action>(MethodDown)
+map ]e <Action>(GotoNextError)
+map [e <Action>(GotoPreviousError)
 
-" move to the beginning of the next word
-map w [w
+map <leader>ww <Action>(JumpToLastWindow) " Toggle between editor and last active tool window
 
-" move to the end of the next word
-map e ]w
 
-" move to the beginning of the previous word
-map b [b
+" WINDOW
+map <C-w>r <Action>(ChangeSplitOrientation)
+map <C-w>L <Action>(MoveTabRight)
+map <C-w>J <Action>(MoveTabDown)
+map <C-w>m <Action>(MoveEditorToOppositeTabGroup)
+map <C-w>q <Action>(CloseContent)
+map <C-w>c <Action>(Unsplit)
+map <C-w>o <Action>(UnsplitAll)
+map <C-w>s <Action>(SplitHorizontally)
+map <C-w>v <Action>(SplitVertically)
 
-" move to the end of the previous word
-map ge ]b
-
-" go to the left split
-map <A-j> <C-w>h
-
-" go to the bottom split
-map <A-k> <C-w>j
-
-" go to the top split
-map <A-l> <C-w>k
-
-" go to the right split
-map <A-;> <C-w>l
-
-map <leader>wv <Action>(SplitVertically)
-map <leader>wh <Action>(SplitHorizontally)
-map <leader>ww <Action>(Unsplit)
-map <leader>wa <Action>(UnsplitAll)
-
+" SEARCH
 map <leader>sc <Action>(GotoClass)
 map <leader>sf <Action>(GotoFile)
 map <leader>ss <Action>(GotoSymbol)
 map <leader>sa <Action>(GotoAction)
-map <leader>gd <Action>(GotoDeclaration)
-map <leader>gy <Action>(GotoTypeDeclaration)
-map <leader>gi <Action>(GotoImplementation)
-map <leader>gt <Action>(GotoTest)
-map <leader>gm <Action>(GotoSuperMethod)
-map <leader>gl <Action>(GotoLine)
+ 
+" FILE
+map <leader>ff <Action>(Find)
+map <leader>fh <Action>(Replace)
+map <leader>fF <Action>(FindInPath)
+map <leader>fH <Action>(ReplaceInPath)
+map <leader>fr <Action>(RenameFile)
+map <leader>fo <Action>(OpenFile)
+map <leader>fnf <Action>(NewFile)
+map <leader>fns <Action>(NewScratchFile)
+map <leader>fnd <Action>(NewDir)
+map <leader>fu <Action>(FindUsages)
+map <leader>fv <Action>(ViewSource)
 
-map <leader>ug <Action>(FindUsages)
-map <leader>uu <Action>(ShowUsages)
-map <leader>vs <Action>(ViewSource)
-map <leader>im <Action>(QuickImplementations)
-map <leader>td <Action>(QuickTypeDefinition)
-map <leader>ti <Action>(ExpressionTypeInfo)
-map <leader>sh <Action>(ShowHoverInfo)
-map <leader>oo <Action>(FileStructurePopup)
-
-map <S-f> <Action>(Find)
-map <S-r> <Action>(Replace)
-map <leader>ff <Action>(FindInPath)
-map <leader>fr <Action>(ReplaceInPath)
-
-map <leader>rn <Action>(RenameElement)
-map <leader>rm <Action>(ExtractMethod)
-map <leader>rv <Action>(IntroduceVariable)
-map <leader>rf <Action>(IntroduceField)
-map <leader>rs <Action>(ChangeSignature)
-map <leader>rr <Action>(Refactorings.QuickListPopupAction)
-
-map <leader>aa <Action>(ShowIntentionActions)
-map <leader>sw <Action>(SurroundWith)
-map <S-space> <Action>(Generate)
-map <S-k> <Action>(EditorDuplicateLines)
-map <C-[> <Action>(EditorCompleteStatement)
-
-map <leader>en <Action>(GotoNextError)
-map <leader>ep <Action>(GotoPreviousError)
-map <leader>lc <Action>(JumpToLastChange)
-map <leader>ll <Action>(RecentLocations)
-map <C-;> <Action>(RecentFiles)
-map <S-l> <Action>(Forward)
-map <S-h> <Action>(Back)
-map <A-[> <Action>(MethodUp)
-map <A-]> <Action>(MethodDown)
-
-map <leader><leader> <Action>(ReformatCode)
+" EDIT
+map <leader>e/ <Action>(CommentByLineComment) 
+map <leader>e? <Action>(CommentByBlockComment) 
+map <leader>ef <Action>(ReformatCode)
+map <leader>es <Action>(SurroundWith)
 map <leader>oi <Action>(OptimizeImports)
 map <leader>ra <Action>(RearrangeCode)
 
-"map <Alt-j> <Action>(MoveLineDown)
-"map <Alt-k> <Action>(MoveLineUp)
-map <C-A-j> <Action>(MoveStatementDown)
-map <C-A-k> <Action>(MoveStatementUp)
-map <leader>ca <Action>(CopyAbsolutePath)
-map <leader>cn <Action>(CopyFileName)
-map <leader>cp <Action>(CopyContentRootPath)
+" REFACTOR
+map <leader>rr <Action>(RenameElement)
+map <leader>ru <Action>($Undo)
+map <leader>rg <Action>(Generate)
 
-map <leader>fs <Action>(NewScratchFile)
-map <leader>qq <Action>(CloseContent)
+" GOTO
+map <leader>gd <Action>(GotoDeclaration)
+map <leader>gy <Action>(GotoTypeDeclaration)
+map <leader>gi <Action>(GotoImplementation)
+map <leader>gm <Action>(GotoSuperMethod)
+map <leader>gt <Action>(GotoTest)
+map <leader>gl <Action>(GotoLine)
+"map <leader>? <Action>(JumpToLastChange)
+
+" SHOW
+map <leader>sr <Action>(Refactorings.QuickListPopupAction)
+map <leader>sh <Action>(ShowHoverInfo)
+map <leader>su <Action>(ShowUsages)
+map <leader>si <Action>(QuickImplementations)
+map <leader>sy <Action>(QuickTypeDefinition)
+map <leader>sl <Action>(RecentLocations)
+map <leader>sf <Action>(FileStructurePopup)
+"map <leader>? <Action>(ExpressionTypeInfo)
+
+" YANK
+map <leader>ya <Action>(CopyAbsolutePath)
+map <leader>yn <Action>(CopyFileName)
+map <leader>yp <Action>(CopyContentRootPath)
+
+" QUIT
 map <leader>qa <Action>(CloseAllEditors)
-map <leader>nf <Action>(NewFile)
-map <leader>nd <Action>(NewDir)
-map <leader>re <Action>(RenameFile)
-map <leader>of <Action>(OpenFile)
-map <leader>ri <Action>(RestartIde)
+
+
+" ================================
+"   Vim Cheat Sheet Reference
+" ================================
+
+" -- Global Commands
+" :h[elp] keyword         " Open help for a keyword
+" :sav[eas] file          " Save file as...
+" :clo[se]                " Close current pane
+" :ter[minal]             " Open a terminal window
+" K                       " Open man page for word under cursor
+" Tip: Run 'vimtutor' to learn the basics
+
+" -- Cursor Movement
+" h/j/k/l                 " Left / Down / Up / Right
+" gj / gk                 " Down / up (multi-line text)
+" H / M / L               " Top / Middle / Bottom of screen
+" w, W, e, E, b, B, ge, gE " Word-based jumps (with punctuation variants)
+" %                       " Jump to matching bracket ((), {}, [])
+" 0 / ^ / $ / g_          " Start / first non-blank / end / last non-blank of line
+" gg / G / 5gg or 5G      " Go to first / last / specific line
+" gd / gD                 " Jump to local / global declaration
+" fx, tx, Fx, Tx          " Character-based jumps
+" ; / ,                   " Repeat last f/t/F/T movement (forward / backward)
+" { }                     " Previous / next paragraph or code block
+" zz / zt / zb            " Center / top / bottom cursor on screen
+" Ctrl+e / Ctrl+y         " Scroll screen down / up (cursor stays)
+" Ctrl+b / Ctrl+f         " Page up / down (cursor moves)
+" Ctrl+d / Ctrl+u         " Half-page down / up (cursor & screen)
+" Tip: Prefix movement with number to repeat (e.g. 4j)
+
+" -- Insert Mode (inserting/appending text)
+" i / I / a / A           " Insert before / line start / after / line end
+" o / O                   " Open new line below / above current
+" ea                      " Insert at end of word
+" Ctrl+h / Ctrl+w         " Delete char / word before cursor
+" Ctrl+j                  " Newline in insert mode
+" Ctrl+t / Ctrl+d         " Indent / de-indent one shiftwidth
+" Ctrl+n / Ctrl+p         " Auto-complete next / previous match
+" Ctrl+rx                 " Insert contents of register x
+" Ctrl+ox                 " Enter normal mode for one command x
+" Esc / Ctrl+c            " Exit insert mode
+
+" -- Editing (change/replace operations)
+" r / R                   " Replace single / multiple characters
+" J / gJ                  " Join next line with / without space
+" gwip                    " Reflow paragraph
+" g~ / gu / gU            " Toggle case / lowercase / uppercase until motion
+" cc / C (c$) / ciw / cw " Change line / to line end / inner word / to end of word
+" s / S                   " Substitute char / line
+" xp                      " Transpose two characters
+" u / U                   " Undo / undo all changes on last changed line
+" Ctrl+r                  " Redo
+" .                       " Repeat last command
+
+" -- Visual Mode (selecting text)
+" v / V / Ctrl+v          " Visual / line-wise / block selection
+" o / O                   " Move to other end / corner of selection
+" aw, ab, aB / ib, iB / at, it 
+"                        " Select around / inner word/block/tags
+" Esc / Ctrl+c            " Exit visual mode
+
+" -- Visual Mode Commands
+" > / <                   " Shift text right / left
+" y / d                   " Yank (copy) / delete selected text
+" ~ / u / U               " Toggle case / lowercase / uppercase selected
+
+" -- Registers
+" :reg[isters]            " List register contents
+" \"xy / \"xp             " Yank into / paste from register x
+" \"+y / \"+p             " System clipboard yank / paste
+" Tip: Registers are saved in ~/.viminfo between sessions
+
+" -- Special Registers
+" 0     Unnamed: last yank
+" \"     Unnamed: last delete or yank
+" %     Current file name
+" #     Alternate file name
+" * / + Clipboard (X11 primary / clipboard)
+" /     Last search pattern
+" :     Last command
+" .     Last inserted text
+" -     Last small delete
+" =     Expression register
+" _     Black hole register
+
+" -- Marks & Jumping
+" :marks                 " List all marks
+" ma                     " Set mark 'a' at current position
+" `a / 'a                " Jump to mark 'a' (exact / line start)
+" y`a                    " Yank to mark 'a'
+" `0 / `\" / `.` / ``    " Jump to last exit / last edit / last change / before last jump
+" :ju[mps]               " List jump locations
+" Ctrl+i / Ctrl+o        " Next / previous in jump list
+" :changes               " List changes
+" g, / g;                " Newer / older position in change list
+" Ctrl+]                 " Jump to tag under cursor
+" Tip: ` vs. ' behavior difference: ` jumps to exact pos; ' jumps to line start
+
+" -- Macros
+" qa / q                 " Start / stop recording macro 'a'
+" @a / @@                " Run macro 'a' / last-run macro
+
+" -- Cutting & Pasting
+" yy / 2yy               " Yank line / two lines
+" yw / yiw / yaw        " Yank word: from cursor / inner / with space
+" y$ / Y                 " Yank to end of line
+" p / P / gp / gP        " Paste after / before, with cursor position options
+" dd / 2dd               " Delete line / two lines
+" dw / diw / daw        " Delete word: to next / inner / with space
+" :3,5d                  " Delete lines 3 to 5
+" :.,$d / :.,1d / :10,1d " Delete range: to end / from start / specified range
+" :g/{pattern}/d        " Delete lines containing pattern
+" :g!/{pattern}/d       " Delete lines not containing pattern
+" d$ / D                 " Delete to end of line
+" x                       " Delete character
+
+" -- Diff & Folding
+" dp / :diffpu[t]        " Put difference into other buffer
+" :diffthis              " Mark current window for diff
+" :dif[fupdate]          " Update differences
+" :diffo[ff]             " Turn off diff mode
+" Tip: Use 'vimdiff' or 'git difftool' to diff files
+
+" -- Folding (for code)
+" zf                     " Create fold
+" zd                     " Delete fold under cursor
+" za                     " Toggle fold
+" zo / zc                " Open / close fold
+" zr / zm                " Open / close all folds one level
+" zi                     " Toggle folds globally
+" ]c / [c                " Jump to next / previous change in diff
+
+" ================================
+"   End of Vim Cheat Sheet
+" ================================
+
+" ──────────────────────────────────────────────────────────────
+" Vim / IdeaVim Mapping Reference
+" ──────────────────────────────────────────────────────────────
+"
+" Two big ideas:
+" 1. Recursive vs Non-Recursive
+"    - map/nmap/imap/etc. → recursive (expand other mappings)
+"    - noremap/nnoremap/inoremap/etc. → non-recursive (use literally)
+"    → Best practice: usually use *noremap* forms to avoid surprises.
+"
+" 2. Mode-specific
+"    Choose which mode the mapping applies to:
+"
+" ───────────────
+" Normal mode
+" ───────────────
+" nmap      → normal mode (recursive)
+" nnoremap  → normal mode (non-recursive) ← use this most often
+"
+" Example:
+"   map <leader>w :w<CR>
+"   → <leader>w saves the file
+"
+" ───────────────
+" Insert mode
+" ───────────────
+" imap      → insert mode (recursive)
+" inoremap  → insert mode (non-recursive)
+"
+" Example:
+"   inoremap jj <Esc>
+"   → typing jj in insert mode exits to normal
+"
+" ───────────────
+" Visual / Select mode
+" ───────────────
+" vmap      → visual + select (recursive)
+" vnoremap  → visual + select (non-recursive)
+" xmap      → visual only (recursive)
+" xnoremap  → visual only (non-recursive)
+"
+" Example:
+"   vnoremap <leader>y "+y
+"   → copy selection to system clipboard
+"
+" ───────────────
+" Operator-pending mode
+" ───────────────
+" omap      → operator-pending (recursive)
+" onoremap  → operator-pending (non-recursive)
+"
+" Example:
+"   onoremap p i(
+"   → after 'd', 'y', etc., typing 'p' means "inside parentheses"
+"
+" ───────────────
+" Command-line mode
+" ───────────────
+" cmap      → command-line mode (recursive)
+" cnoremap  → command-line mode (non-recursive)
+"
+" Example:
+"   cnoremap w!! w !sudo tee > /dev/null %
+"   → save with sudo if needed
+"
+" ───────────────
+" Generic / All modes
+" ───────────────
+" map       → all modes, recursive
+" noremap   → all modes, non-recursive
+"
+" Generally avoid plain `map`/`noremap`, since they apply too broadly.
+"
+" ──────────────────────────────────────────────────────────────
+" TL;DR (best practice):
+"   - Use nnoremap, inoremap, vnoremap, xnoremap for clarity.
+"   - Use noremap versions unless recursion is intentional.
+" ──────────────────────────────────────────────────────────────
