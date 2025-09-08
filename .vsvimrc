@@ -1,0 +1,146 @@
+" Visual Studio VimRC Configuration
+" Based on ~/.ideavimrc
+
+" General Settings
+set clipboard=unnamed
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+" General Mappings
+nnoremap <leader>,o :e $MYVIMRC<CR>
+nnoremap <leader>,, :so $MYVIMRC<CR>:nohlsearch<CR>
+nnoremap <M-D-Left> :tabprevious<CR>
+nnoremap <M-D-Right> :tabnext<CR>
+
+" Quick Actions
+nnoremap <leader>. :vsc Edit.QuickActionsForPosition<CR>
+nnoremap <C-;> :vsc Window.QuickLaunch<CR>
+
+" IDE Settings
+nnoremap <leader>\ :vsc Tools.Options<CR>
+
+" Navigation
+nnoremap [m :vsc Edit.PreviousMethod<CR>
+nnoremap ]m :vsc Edit.NextMethod<CR>
+nnoremap ]e :vsc View.NextError<CR>
+nnoremap [e :vsc View.PreviousError<CR>
+
+" Window Management
+nnoremap <leader>ww :vsc Window.NextDocumentWindow<CR>
+nnoremap <C-w>q :vsc File.Close<CR>
+nnoremap <C-w>o :vsc Window.CloseAllButThis<CR>
+nnoremap <C-w>s :vsc Window.Split<CR>
+nnoremap <C-w>v :vsc Window.NewVerticalTabGroup<CR>
+
+" Search and Navigation
+nnoremap <leader>sc :vsc Edit.GoToAll<CR>
+nnoremap <leader>sf :vsc Edit.GoToFile<CR>
+nnoremap <leader>ss :vsc Edit.GoToSymbol<CR>
+nnoremap <leader>sa :vsc Tools.CommandWindow<CR>
+
+" Show/View Operations
+nnoremap <leader>sh :vsc Edit.QuickInfo<CR>
+nnoremap <leader>su :vsc Edit.FindAllReferences<CR>
+nnoremap <leader>si :vsc Edit.PeekDefinition<CR>
+nnoremap <leader>sl :vsc View.NavigateBackward<CR>
+"nnoremap <leader>sf :vsc View.DocumentOutline<CR>
+
+
+" File Operations
+nnoremap <leader>ff :vsc Edit.Find<CR>
+nnoremap <leader>fh :vsc Edit.Replace<CR>
+nnoremap <leader>fF :vsc Edit.FindInFiles<CR>
+nnoremap <leader>fH :vsc Edit.ReplaceInFiles<CR>
+nnoremap <leader>fo :vsc File.OpenFile<CR>
+nnoremap <leader>fnf :vsc Project.AddNewItem<CR>
+nnoremap <leader>fnd :vsc Project.AddNewFolder<CR>
+nnoremap <leader>fu :vsc Edit.FindAllReferences<CR>
+
+" Edit Operations
+nnoremap <leader>e/ :vsc Edit.ToggleLineComment<CR>
+vnoremap <leader>e/ :vsc Edit.ToggleLineComment<CR>
+nnoremap <leader>e? :vsc Edit.ToggleBlockComment<CR>
+vnoremap <leader>e? :vsc Edit.ToggleBlockComment<CR>
+nnoremap <leader>ef :vsc Edit.FormatDocument<CR>
+vnoremap <leader>ef :vsc Edit.FormatSelection<CR>
+nnoremap <leader>es :vsc Edit.SurroundWith<CR>
+nnoremap <leader>oi :vsc Edit.RemoveAndSort<CR>
+
+" Refactoring
+nnoremap <leader>rr :vsc Refactor.Rename<CR>
+nnoremap <leader>ru :vsc Edit.Undo<CR>
+nnoremap <leader>rg :vsc View.CodeDefinitionWindow<CR>
+
+" Go To Operations
+nnoremap <leader>gd :vsc Edit.GoToDefinition<CR>
+nnoremap <leader>gy :vsc Edit.GoToTypeDefinition<CR>
+nnoremap <leader>gi :vsc Edit.GoToImplementation<CR>
+nnoremap <leader>gt :vsc TestExplorer.RunAllTestsInContext<CR>
+nnoremap <leader>gl :vsc Edit.GoToLine<CR>
+
+" Copy Operations
+nnoremap <leader>ya :vsc File.CopyFullPath<CR>
+nnoremap <leader>yn :vsc Edit.Copy<CR>
+
+" Quit Operations
+nnoremap <leader>qa :vsc Window.CloseAllDocuments<CR>
+
+" Visual Studio Specific Shortcuts
+nnoremap <F5> :vsc Debug.Start<CR>
+nnoremap <S-F5> :vsc Debug.StopDebugging<CR>
+nnoremap <F9> :vsc Debug.ToggleBreakpoint<CR>
+nnoremap <F10> :vsc Debug.StepOver<CR>
+nnoremap <F11> :vsc Debug.StepInto<CR>
+nnoremap <S-F11> :vsc Debug.StepOut<CR>
+
+" Build Operations
+nnoremap <C-S-B> :vsc Build.BuildSolution<CR>
+nnoremap <F6> :vsc Build.BuildSolution<CR>
+
+" Solution Explorer
+nnoremap <leader>se :vsc View.SolutionExplorer<CR>
+
+" IntelliSense
+inoremap <C-Space> <C-o>:vsc Edit.ListMembers<CR>
+inoremap <C-k><C-i> <C-o>:vsc Edit.QuickInfo<CR>
+
+" Error List
+nnoremap <leader>el :vsc View.ErrorList<CR>
+
+" Output Window
+nnoremap <leader>ow :vsc View.Output<CR>
+
+" Test Explorer
+nnoremap <leader>te :vsc TestExplorer.ShowTestExplorer<CR>
+
+" Package Manager Console
+nnoremap <leader>pm :vsc View.PackageManagerConsole<CR>
+
+" Git Integration
+nnoremap <leader>gs :vsc Team.Git.GoToGitChanges<CR>
+nnoremap <leader>gb :vsc Team.Git.GoToGitBranches<CR>
+
+" ================================
+" Visual Studio Command Reference
+" ================================
+"
+" Common VS Commands that can be mapped:
+" - Build.BuildSolution
+" - Debug.Start / Debug.StopDebugging
+" - Edit.GoToDefinition / Edit.GoToDeclaration
+" - Edit.FindAllReferences
+" - Edit.Rename (Refactor.Rename)
+" - Edit.FormatDocument / Edit.FormatSelection
+" - File.NewFile / File.OpenFile / File.Save
+" - Project.AddNewItem / Project.AddExistingItem
+" - View.SolutionExplorer / View.ErrorList
+" - Window.NewWindow / Window.CloseAllDocuments
+" - Edit.Find / Edit.Replace / Edit.FindInFiles
+" - Edit.ToggleLineComment / Edit.ToggleBlockComment
+" - Tools.Options
+" - View.NavigateBackward / View.NavigateForward
+"
+" To find more commands, use :vsc Tools.CommandWindow
+" and type ">" to see available commands

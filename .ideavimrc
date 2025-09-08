@@ -40,6 +40,16 @@ map <leader>sc <Action>(GotoClass)
 map <leader>sf <Action>(GotoFile)
 map <leader>ss <Action>(GotoSymbol)
 map <leader>sa <Action>(GotoAction)
+
+" SHOW
+map <leader>sr <Action>(Refactorings.QuickListPopupAction)
+map <leader>sh <Action>(ShowHoverInfo)
+map <leader>su <Action>(ShowUsages)
+map <leader>si <Action>(QuickImplementations)
+map <leader>sy <Action>(QuickTypeDefinition)
+map <leader>sl <Action>(RecentLocations)
+"map <leader>sf <Action>(FileStructurePopup)
+"map <leader>? <Action>(ExpressionTypeInfo)
  
 " FILE
 map <leader>ff <Action>(Find)
@@ -76,15 +86,6 @@ map <leader>gt <Action>(GotoTest)
 map <leader>gl <Action>(GotoLine)
 "map <leader>? <Action>(JumpToLastChange)
 
-" SHOW
-map <leader>sr <Action>(Refactorings.QuickListPopupAction)
-map <leader>sh <Action>(ShowHoverInfo)
-map <leader>su <Action>(ShowUsages)
-map <leader>si <Action>(QuickImplementations)
-map <leader>sy <Action>(QuickTypeDefinition)
-map <leader>sl <Action>(RecentLocations)
-map <leader>sf <Action>(FileStructurePopup)
-"map <leader>? <Action>(ExpressionTypeInfo)
 
 " YANK
 map <leader>ya <Action>(CopyAbsolutePath)
