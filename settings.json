@@ -130,7 +130,7 @@
     "vscode-insiders"
   ],
   "terminal.integrated.defaultProfile.linux": "bash",
-  "terminal.integrated.defaultProfile.osx": "bash",
+  "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.env.osx": {
     "Q_NEW_SESSION": "1"
   },
@@ -148,6 +148,7 @@
       "icon": "terminal-powershell"
     }
   },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[csharp]": {
     "editor.defaultFormatter": "ms-dotnettools.csharp"
   },
@@ -191,7 +192,7 @@
       "before": ["<Alt-Cmd-Right>"],
       "commands": ["workbench.action.nextEditor"]
     },
-    
+
     // IDE actions
     {
       "before": ["<leader>", "."],
@@ -205,7 +206,7 @@
       "before": ["<leader>", "\\"],
       "commands": ["workbench.action.openSettings"]
     },
-    
+
     // Navigation
     {
       "before": ["]", "m"],
@@ -227,7 +228,7 @@
       "before": ["<leader>", "w", "w"],
       "commands": ["workbench.action.focusActiveEditorGroup"]
     },
-    
+
     // Window management
     {
       "before": ["<C-w>", "r"],
@@ -265,7 +266,7 @@
       "before": ["<C-w>", "v"],
       "commands": ["workbench.action.splitEditor"]
     },
-    
+
     // Search
     {
       "before": ["<leader>", "s", "c"],
@@ -283,7 +284,7 @@
       "before": ["<leader>", "s", "a"],
       "commands": ["workbench.action.showCommands"]
     },
-    
+
     // Show/Info
     {
       "before": ["<leader>", "s", "r"],
@@ -309,7 +310,7 @@
       "before": ["<leader>", "s", "l"],
       "commands": ["workbench.action.openRecent"]
     },
-    
+
     // File operations
     {
       "before": ["<leader>", "f", "f"],
@@ -351,7 +352,7 @@
       "before": ["<leader>", "f", "v"],
       "commands": ["editor.action.peekDefinition"]
     },
-    
+
     // Edit
     {
       "before": ["<leader>", "e", "/"],
@@ -373,7 +374,7 @@
       "before": ["<leader>", "o", "i"],
       "commands": ["editor.action.organizeImports"]
     },
-    
+
     // Refactor
     {
       "before": ["<leader>", "r", "r"],
@@ -387,7 +388,7 @@
       "before": ["<leader>", "r", "g"],
       "commands": ["editor.action.sourceAction"]
     },
-    
+
     // Go to
     {
       "before": ["<leader>", "g", "d"],
@@ -413,7 +414,7 @@
       "before": ["<leader>", "g", "l"],
       "commands": ["workbench.action.gotoLine"]
     },
-    
+
     // Yank (copy paths)
     {
       "before": ["<leader>", "y", "a"],
@@ -427,14 +428,14 @@
       "before": ["<leader>", "y", "p"],
       "commands": ["copyWorkspacePath"]
     },
-    
+
     // Quit
     {
       "before": ["<leader>", "q", "a"],
       "commands": ["workbench.action.closeAllEditors"]
     }
   ],
-  
+
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "e", "/"],
@@ -445,4 +446,16 @@
       "commands": ["editor.action.blockComment"]
     }
   ],
+  "chat.tools.terminal.autoApprove": {
+    ".specify/scripts/bash/*.sh": true,
+    "`,": true,
+    "mkdir": true,
+    "Endpoints,Services,Models,Observability}": true,
+    "Contract,Integration,Unit}": true,
+    "npm install": true,
+    "curl": true,
+    "\"source\":": true,
+    "\",": true,
+    "time": true
+  }
 }

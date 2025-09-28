@@ -53,9 +53,9 @@ map <leader>sl <Action>(RecentLocations)
  
 " FILE
 map <leader>ff <Action>(Find)
-map <leader>fh <Action>(Replace)
-map <leader>fF <Action>(FindInPath)
-map <leader>fH <Action>(ReplaceInPath)
+map <leader>hh <Action>(Replace)
+map <leader>FF <Action>(FindInPath)
+map <leader>HH <Action>(ReplaceInPath)
 map <leader>fr <Action>(RenameFile)
 map <leader>fo <Action>(OpenFile)
 map <leader>fnf <Action>(NewFile)
@@ -310,3 +310,4 @@ map <leader>qa <Action>(CloseAllEditors)
 "   - Use nnoremap, inoremap, vnoremap, xnoremap for clarity.
 "   - Use noremap versions unless recursion is intentional.
 " ──────────────────────────────────────────────────────────────
+
