@@ -200,7 +200,7 @@
     },
     {
       "before": ["<C-;>"],
-      "commands": ["workbench.action.quickOpen"]
+      "commands": ["workbench.action.openRecent"]
     },
     {
       "before": ["<leader>", "\\"],
@@ -270,7 +270,7 @@
     // Search
     {
       "before": ["<leader>", "s", "c"],
-      "commands": ["workbench.action.showCommands"]
+      "commands": ["workbench.action.showAllSymbols"]
     },
     {
       "before": ["<leader>", "s", "f"],
@@ -308,7 +308,9 @@
     },
     {
       "before": ["<leader>", "s", "l"],
-      "commands": ["workbench.action.openRecent"]
+      "commands": [
+        "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
+      ]
     },
 
     // File operations
@@ -339,6 +341,10 @@
     {
       "before": ["<leader>", "f", "n", "f"],
       "commands": ["explorer.newFile"]
+    },
+    {
+      "before": ["<leader>", "f", "n", "s"],
+      "commands": ["workbench.action.files.newUntitledFile"]
     },
     {
       "before": ["<leader>", "f", "n", "d"],
